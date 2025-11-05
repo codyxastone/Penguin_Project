@@ -27,7 +27,7 @@ CREATE VIEW gold.penguins_adelie AS(
 );
 GO
 --Create a view of from the silver.penguins_size table that his filtered for aggregation by the speciece to only show chinstrap
-CREATE VIEW gold.penguin_chinstrap AS(
+CREATE VIEW gold.penguins_chinstrap AS(
 	SELECT 
 	id,
 	species,
