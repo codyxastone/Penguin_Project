@@ -13,14 +13,14 @@ ADD id INT IDENTITY(1,1) PRIMARY KEY;
 GO
 
 --Create a view from silver.penguins_size with all available data and containing the new primary key 'id'
-CREATE VIEW gold.penguins_size AS (
+CREATE VIEW gold.penguins_size AS
 	SELECT *
 	FROM silver.penguins_size
-);
+	WHERE body_mass_g IS NOT NULL;
 GO
 
 --Create a view of from the silver.penguins_size table that his filtered for aggregation by the speciece to only show adelie
-CREATE VIEW gold.penguins_adelie AS(
+CREATE VIEW gold.penguins_adelie AS
 	SELECT 
 	id,
 	species,
@@ -31,11 +31,10 @@ CREATE VIEW gold.penguins_adelie AS(
 	body_mass_g,
 	sex
 	FROM silver.penguins_size
-	WHERE species = 'Adelie'
-);
+	WHERE species = 'Adelie' AND body_mass_g IS NOT NULL;
 GO
 --Create a view of from the silver.penguins_size table that his filtered for aggregation by the speciece to only show chinstrap
-CREATE VIEW gold.penguins_chinstrap AS(
+CREATE VIEW gold.penguins_chinstrap AS
 	SELECT 
 	id,
 	species,
@@ -46,11 +45,10 @@ CREATE VIEW gold.penguins_chinstrap AS(
 	body_mass_g,
 	sex
 	FROM silver.penguins_size
-	WHERE species = 'chinstrap'
-);
+	WHERE species = 'chinstrap' AND body_mass_g IS NOT NULL;
 GO
 --Create a view of from the silver.penguins_size table that his filtered for aggregation by the speciece to only show gentoo
-CREATE VIEW gold.penguins_gentoo AS(
+CREATE VIEW gold.penguins_gentoo AS
 	SELECT 
 	id,
 	species,
@@ -61,5 +59,4 @@ CREATE VIEW gold.penguins_gentoo AS(
 	body_mass_g,
 	sex
 	FROM silver.penguins_size
-	WHERE species = 'gentoo'
-);
+	WHERE species = 'gentoo'  AND body_mass_g IS NOT NULL;
