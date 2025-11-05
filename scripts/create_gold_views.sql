@@ -8,9 +8,17 @@ Script purpose:
 */
 
 --Add a primary key to the table named 'id'
-ALTER TABLE your_table
+ALTER TABLE silver.penguins_size
 ADD id INT IDENTITY(1,1) PRIMARY KEY;
 GO
+
+--Create a view from silver.penguins_size with all available data and containing the new primary key 'id'
+CREATE VIEW gold.penguins_size AS (
+	SELECT *
+	FROM silver.penguins_size
+);
+GO
+
 --Create a view of from the silver.penguins_size table that his filtered for aggregation by the speciece to only show adelie
 CREATE VIEW gold.penguins_adelie AS(
 	SELECT 
