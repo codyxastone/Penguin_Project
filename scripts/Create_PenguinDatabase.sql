@@ -5,7 +5,7 @@ CREATE DATABASE AND SCHEMAS
 Script Purpose:
 
 	Check to see if PenguinDatabase exists, if not it will create the database
-	along with the bronze, silver and gold schemas.
+	along with the silver and gold schemas.
 
 WARNING:
 	Rinning this script will drop the entiere 'PenguinDatabase' if it exists.
@@ -30,8 +30,6 @@ GO
 USE PenguinDatabase;
 GO
 
-CREATE SCHEMA bronze;
-GO
 CREATE SCHEMA silver;
 GO
 CREATE SCHEMA gold;
